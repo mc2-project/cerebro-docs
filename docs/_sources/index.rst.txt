@@ -10,8 +10,8 @@ Welcome to Cerebro's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   setup/setup.rst
    setup/tutorial.rst
+   setup/setup.rst
    usage/references.rst
    todo/todo.rst
    
