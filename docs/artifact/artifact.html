@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Artifact Evaluation Guide &mdash; Cerebro 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Cerebro TODO’s" href="../todo/todo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cerebro
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../setup/tutorial.html">Cerebro Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup/setup.html">Cerebro Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/references.html">Cerebro References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/todo.html">Cerebro TODO’s</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Artifact Evaluation Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cerebro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Artifact Evaluation Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/artifact/artifact.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="artifact-evaluation-guide">
+<span id="artifact"></span><h1>Artifact Evaluation Guide<a class="headerlink" href="#artifact-evaluation-guide" title="Permalink to this headline">¶</a></h1>
+<p>Before running the artifact, due to the nature of the frameworks, we will assign each machine with a specific ID. We will 0-index the IDs (the first party is party 0). While the framework we use for arithmetic circuits 0-indexes party ids, the framework for boolean circuits 1-indexes party ids, which explains any potential inconsistencies with executing the scripts.</p>
+<ul>
+<li><p>Figure 6a: We provide scripts for the data points for 2, 4, 6 parties for both the quadratic and linear protocols in the LAN
+setting with a throughput of 2Gbit/s, for a total of 6 experiments.
+To run the linear protocol, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_linear.sh</span> <span class="pre">N</span> <span class="pre">p</span></code> in which <cite>N</cite> is the number of parties and <cite>p</cite> is the party id (0-indexed).</p>
+<p>To run the linear protocol for two parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_linear.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and
+run <code class="docutils literal notranslate"><span class="pre">`./artifact_eval_scripts/fig_6a/fig_6a_linear.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
+<p>For 4 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_linear.sh</span> <span class="pre">4</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>For 6 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_linear.sh</span> <span class="pre">6</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>Similarly, for the quadratic protocol for two parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_quadratic.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_quadratic.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
+<p>For 4 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_quadratic.sh</span> <span class="pre">4</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>For 6 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_quadratic.sh</span> <span class="pre">6</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+</li>
+<li><p>Figure 6b: We provide scripts for the data points for 2, 4, 6 parties for both n=100 and n=10 in the LAN setting with a
+throughput of 2Gbit/s, for a total of 6 experiments. To run it for n=100, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">N</span> <span class="pre">p</span> <span class="pre">n</span></code> in which <cite>N</cite>
+is the number of parties and <cite>p</cite> is the party id (0-indexed) and <cite>n</cite> refers to the value in the graph which dictates the
+number of columns in the vectorized triple.</p>
+<p>For the n=100 data point, for 2 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">2</span> <span class="pre">0</span> <span class="pre">100</span></code> for party 0
+and <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">2</span> <span class="pre">1</span> <span class="pre">100</span></code> for party 1.</p>
+<p>For the n=10 data point, for 2 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">2</span> <span class="pre">0</span> <span class="pre">10</span></code> for party 0
+and <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">2</span> <span class="pre">1</span> <span class="pre">10</span></code> for party 1.</p>
+<p>For 4 parties and n=10, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">4</span> <span class="pre">0</span> <span class="pre">10</span></code> for party 0 and similarly for the other parties.</p>
+<p>For 6 parties and n=10, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">6</span> <span class="pre">0</span> <span class="pre">10</span></code> for party 0 and similarly for the other parties.</p>
+</li>
+<li><p>Figure 6d: We provide scripts for the data points for 2, 4, 6 parties for both the quadratic and linear protocols in the WAN
+setting with a throughput of 100Mbit/s, for a total of 6 experiments.
+To run the linear protocol, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6d/fig_6d_linear.sh</span> <span class="pre">N</span> <span class="pre">p</span></code> in which <cite>N</cite> is the number of parties and <cite>p</cite> is the party id (0-indexed).</p>
+<p>To run the linear protocol for two parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6d/fig_6d_linear.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and
+run <code class="docutils literal notranslate"><span class="pre">`./artifact_eval_scripts/fig_6d/fig_6d_linear.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
+<p>For 4 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6d/fig_6d_linear.sh</span> <span class="pre">4</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>For 6 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6d/fig_6a_linear.sh</span> <span class="pre">6</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>Similarly, for the quadratic protocol for two parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6d/fig_6d_quadratic.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6d/fig_6d_quadratic.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
+<p>For 4 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6d/fig_6d_quadratic.sh</span> <span class="pre">4</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>For 6 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6d/fig_6d_quadratic.sh</span> <span class="pre">6</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+</li>
+<li><p>Figure 6e: We provide scripts for the data points for 2, 4, 6 parties for both n=100 and n=10 in the LAN setting with a
+throughput of 2Gbit/s, for a total of 6 experiments. To run it for n=100, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6e/fig_6e_quadratic.sh</span> <span class="pre">N</span> <span class="pre">p</span> <span class="pre">n</span></code> in which <cite>N</cite> is the number of parties and <cite>p</cite> is the party id
+(0-indexed) and <cite>n</cite> refers to the value in the graph which dictates the number of columns in the vectorized triple.</p>
+<p>For the n=100 data point, for 2 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6e/fig_6e_quadratic.sh</span> <span class="pre">2</span> <span class="pre">0</span> <span class="pre">100</span></code> for party 0
+and <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6e/fig_6e_quadratic.sh</span> <span class="pre">2</span> <span class="pre">1</span> <span class="pre">100</span></code> for party 1.</p>
+<p>For the n=10 data point, for 2 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6e/fig_6e_quadratic.sh</span> <span class="pre">2</span> <span class="pre">0</span> <span class="pre">10</span></code> for party 0
+and <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6e/fig_6e_quadratic.sh</span> <span class="pre">2</span> <span class="pre">1</span> <span class="pre">10</span></code> for party 1.</p>
+<p>For 4 parties and n=10, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6e/fig_6e_quadratic.sh</span> <span class="pre">4</span> <span class="pre">0</span> <span class="pre">10</span></code> for party 0 and similarly for the other parties.</p>
+<p>For 6 parties and n=10, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6e/fig_6e_quadratic.sh</span> <span class="pre">6</span> <span class="pre">0</span> <span class="pre">10</span></code> for party 0 and similarly for the other parties.</p>
+</li>
+<li><p>Figure 7: We provide scripts for the hierarchical network layout and flat layout on 4 parties.</p>
+<p>For the flat scenario, for parties 0, 1, 2, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/flat_fast.sh</span> <span class="pre">p</span></code> where p is the party index (For example: party 0 executes <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/flat_fast.sh</span> <span class="pre">0</span></code>). For party 3, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/flat_slow.sh</span> <span class="pre">3</span></code>.</p>
+<p>For the hierarchical scenario, for parties 0, 1, 2, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/two_layer_fast.sh</span> <span class="pre">p</span></code> where p is the party index (For example: party 0 executes <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/two_layer_fast.sh</span> <span class="pre">0</span></code>). For party 3, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/two_layer_slow.sh</span> <span class="pre">3</span></code>.</p>
+</li>
+<li><p>Figure 8a: We provide scripts for running decision trees of 2, 4, 6, 8, 10, 12 layers for two parties for both arithmetic
+and boolean circuits, for a total of 12 experiments.</p>
+<p>For running the boolean circuit of a decision tree with 2 layers, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh</span> <span class="pre">1</span></code> for party 0 and
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh</span> <span class="pre">2</span></code> for party 1.</p>
+<p>For running the arithmetic circuit of a decision tree with 2 layers, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh</span> <span class="pre">0</span></code> for party 0 and
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh</span> <span class="pre">1</span></code> for party 1.</p>
+<p>For the other layers, run the corresponding scripts.</p>
+</li>
+<li><p>Figure 8b: We provide scripts for running decision trees of 10 layers for 2, 4, 6 parties for both arithmetic and boolean
+circuits.</p>
+<p>For running the boolean circuit of a decision tree with 2 parties, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh</span> <span class="pre">1</span></code> for party 0 and
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh</span> <span class="pre">2</span></code> for party 1.</p>
+<p>For running the arithmetic circuit of a decision tree with 2 parties, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">0</span></code> for party 0 and
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">1</span></code> for party 1.</p>
+<p>For 4 parties and boolean circuits, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">1</span></code> for party 0 and similarly for the other parties.</p>
+<p>For 4 parties and arithmetic circuits, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>Run the corresponding script for 6 parties.</p>
+</li>
+<li><p>Figure 8c: We provide scripts to run logistic regression for 6 parties for both arithmetic and boolean circuits in a LAN
+setting.</p>
+<p>For arithmetic,</p>
+</li>
+<li><p>Logistic Regression DP Policy: We provide a script to run the DP policy as described in the paper.</p></li>
+<li><p>Logistic Regression Validation Policy. We provide a script to run the validation policy as described in the paper.</p></li>
+<li><p>Auditing generating commitment: We provide a script to run the subset sum commitment scheme used for auditing. The scripts
+generate commitments for 10, 50 and 100 samples.</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../todo/todo.html" class="btn btn-neutral float-left" title="Cerebro TODO’s" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019, Weikeng Chen, Ryan Deng, Wenting Zheng.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
