@@ -1,48 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Cerebro’s ML Library &mdash; Cerebro 1.0 documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'1.0',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
@@ -85,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -94,8 +88,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../setup/setup.html">Cerebro Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup/tutorial.html">Cerebro Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup/setup.html">Cerebro Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">Cerebro References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo/todo.html">Cerebro TODO’s</a></li>
 </ul>
@@ -103,6 +97,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -137,18 +132,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Cerebro’s ML Library</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/usage/mllib.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -182,10 +179,9 @@
 <p><strong>class Piecewise</strong>: Defines a piecewise function based on a sequence of boundaries.</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt>add_boundary(self, lower, upper, a, b)</dt>
-<dd><ul class="first last">
-<li>Adds a linear function y = ax + b within the boundary [lower, upper]</li>
+<li><dl class="simple">
+<dt>add_boundary(self, lower, upper, a, b)</dt><dd><ul>
+<li><p>Adds a linear function y = ax + b within the boundary [lower, upper]</p></li>
 </ul>
 </dd>
 </dl>
@@ -193,7 +189,7 @@
 </ul>
 </div></blockquote>
 <p>Example of a ReLU function:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># init a piecewise function with 2 boundaries (-infty, 0), (0, infty)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># init a piecewise function with 2 boundaries (-infty, 0), (0, infty)</span>
 <span class="n">relu</span> <span class="o">=</span> <span class="n">Piecewise</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="c1"># Add a linear function for each boundary: y = ax + b</span>
 <span class="n">relu</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -208,20 +204,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Weikeng Chen, Ryan Deng, Wenting Zheng
+        &#169; Copyright 2019, Weikeng Chen, Ryan Deng, Wenting Zheng.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -229,7 +230,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
