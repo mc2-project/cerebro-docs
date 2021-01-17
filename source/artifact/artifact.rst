@@ -120,17 +120,62 @@ Before running the artifact, due to the nature of the frameworks, we will assign
 - Figure 8c: We provide scripts to run logistic regression for 6 parties for both arithmetic and boolean circuits in a LAN 
   setting.
 
-  For arithmetic, 
+  For arithmetic, we run both the semihonest and malicious versions of the protocol. 
+
+  To run the semihonest version, run ``./artifact_eval_scripts/fig_8c/fig_8c_lr_arithmetic_semihonst.sh 0`` for party 0 and
+  similarly for the other parties.
+
+  To run the malicious version, run ``./artifact_eval_scripts/fig_8c/fig_8c_lr_arithmetic_malicious.sh 0`` for party 0 and
+  similarly for the other parties.
+
+  For boolean, we run both the semihonest and malicious versions of the protocol.
+
+  To run the semihonest version, run ``./artifact_eval_scripts/fig_8c/fig_8c_lr_boolean_semihonest.sh 1`` for party 0 and
+  similarly for the other parties. (Note again the parties for the boolean framework are 1-indexed).
+
+  To run the malicious version, run ``./artifact_eval_scripts/fig_8c/fig_8c_lr_boolean_malicious.sh 1`` for party 0 and
+  similarly for the other parties. (Note again the parties for the boolean framework are 1-indexed).
+
+
+- Figure 8d: We run a scaled down version of ADMM with 100 samples per party instead of 10000 as in the paper. We vary the
+  number of features from 5 to 20 with and without precomputation.
+
+  For 5 features, to run the optimized version, run ``./artifact_eval_scripts/fig_8d/5_optimized.sh 0`` for party 0 and
+  similarly for the other parties.
+
+  For features, to run the unoptimized version, run ``./artifact_eval_scripts/fig_8d/5_unoptimized.sh 1`` for party 0 
+  and similarly for the other parties.
+
+  For 10 and 20 features, you can run the other scripts in the folder ``./artifact_eval_scripts/fig_8d/`` with the same
+  argument format as above.
+
+  Note that for 20 features, the compilation and offline phase take a significant amount of time for the unoptimized version
+  (up to 8-10 hours). Therefore, we turn them off by default, but they can be enabled by running
+  ``./artifact_eval_scripts/fig_8d/20_unoptimized.sh p 1`` where p is the party number as stated above. Simply add another
+  argument to the end of this script to enable the slow flag.
+  We provide the numbers we got for the offline/online time for every experiment here as well in the report.
 
 
 - Logistic Regression DP Policy: We provide a script to run the DP policy as described in the paper. 
 
+  To run the script, run ``./artifact_eval_scripts/dp_policy/dp_policy.sh 0`` for party 0 and similarly for the other parties.
+
 
 - Logistic Regression Validation Policy. We provide a script to run the validation policy as described in the paper.
+
+  To run the script for 1000 training samples and 100 test samples, run 
+  ``./artifact_eval_scripts/lr_validation/lr_validation_100.sh 0`` for party 0 and similarly for the other parties.
+
+  To run the script for 5000 training samples and 500 test samples, run 
+  ``./artifact_eval_scripts/lr_validation/lr_validation_500.sh 0`` for party 0 and similarly for the other parties.
 
 
 - Auditing generating commitment: We provide a script to run the subset sum commitment scheme used for auditing. The scripts
   generate commitments for 10, 50 and 100 samples.
+
+  For 10 samples, run ``./artifact_eval_scripts/subset_sum/subset_sum_10.sh 0`` for party 0 and similarly for the other parties.
+
+  For 50 and 100 samples, run the corresponding scripts with the same argument format.
 
 
 

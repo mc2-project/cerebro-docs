@@ -241,12 +241,45 @@ circuits.</p>
 </li>
 <li><p>Figure 8c: We provide scripts to run logistic regression for 6 parties for both arithmetic and boolean circuits in a LAN
 setting.</p>
-<p>For arithmetic,</p>
+<p>For arithmetic, we run both the semihonest and malicious versions of the protocol.</p>
+<p>To run the semihonest version, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8c/fig_8c_lr_arithmetic_semihonst.sh</span> <span class="pre">0</span></code> for party 0 and
+similarly for the other parties.</p>
+<p>To run the malicious version, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8c/fig_8c_lr_arithmetic_malicious.sh</span> <span class="pre">0</span></code> for party 0 and
+similarly for the other parties.</p>
+<p>For boolean, we run both the semihonest and malicious versions of the protocol.</p>
+<p>To run the semihonest version, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8c/fig_8c_lr_boolean_semihonest.sh</span> <span class="pre">1</span></code> for party 0 and
+similarly for the other parties. (Note again the parties for the boolean framework are 1-indexed).</p>
+<p>To run the malicious version, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8c/fig_8c_lr_boolean_malicious.sh</span> <span class="pre">1</span></code> for party 0 and
+similarly for the other parties. (Note again the parties for the boolean framework are 1-indexed).</p>
 </li>
-<li><p>Logistic Regression DP Policy: We provide a script to run the DP policy as described in the paper.</p></li>
-<li><p>Logistic Regression Validation Policy. We provide a script to run the validation policy as described in the paper.</p></li>
+<li><p>Figure 8d: We run a scaled down version of ADMM with 100 samples per party instead of 10000 as in the paper. We vary the
+number of features from 5 to 20 with and without precomputation.</p>
+<p>For 5 features, to run the optimized version, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8d/5_optimized.sh</span> <span class="pre">0</span></code> for party 0 and
+similarly for the other parties.</p>
+<p>For features, to run the unoptimized version, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8d/5_unoptimized.sh</span> <span class="pre">1</span></code> for party 0
+and similarly for the other parties.</p>
+<p>For 10 and 20 features, you can run the other scripts in the folder <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8d/</span></code> with the same
+argument format as above.</p>
+<p>Note that for 20 features, the compilation and offline phase take a significant amount of time for the unoptimized version
+(up to 8-10 hours). Therefore, we turn them off by default, but they can be enabled by running
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8d/20_unoptimized.sh</span> <span class="pre">p</span> <span class="pre">1</span></code> where p is the party number as stated above. Simply add another
+argument to the end of this script to enable the slow flag.
+We provide the numbers we got for the offline/online time for every experiment here as well in the report.</p>
+</li>
+<li><p>Logistic Regression DP Policy: We provide a script to run the DP policy as described in the paper.</p>
+<p>To run the script, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/dp_policy/dp_policy.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+</li>
+<li><p>Logistic Regression Validation Policy. We provide a script to run the validation policy as described in the paper.</p>
+<p>To run the script for 1000 training samples and 100 test samples, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/lr_validation/lr_validation_100.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>To run the script for 5000 training samples and 500 test samples, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/lr_validation/lr_validation_500.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+</li>
 <li><p>Auditing generating commitment: We provide a script to run the subset sum commitment scheme used for auditing. The scripts
-generate commitments for 10, 50 and 100 samples.</p></li>
+generate commitments for 10, 50 and 100 samples.</p>
+<p>For 10 samples, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/subset_sum/subset_sum_10.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>For 50 and 100 samples, run the corresponding scripts with the same argument format.</p>
+</li>
 </ul>
 </div>
 
