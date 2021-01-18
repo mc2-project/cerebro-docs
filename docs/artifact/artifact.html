@@ -177,8 +177,9 @@ run <code class="docutils literal notranslate"><span class="pre">`./artifact_eva
 <p>For 6 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6a/fig_6a_quadratic.sh</span> <span class="pre">6</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
 </li>
 <li><p>Figure 6b: We provide scripts for the data points for 2, 4, 6 parties for both n=100 and n=10 in the LAN setting with a
-throughput of 2Gbit/s, for a total of 6 experiments. To run it for n=100, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">N</span> <span class="pre">p</span> <span class="pre">n</span></code> in which <cite>N</cite>
-is the number of parties and <cite>p</cite> is the party id (0-indexed) and <cite>n</cite> refers to the value in the graph which dictates the
+throughput of 2Gbit/s, for a total of 6 experiments. To run it for n=100, run
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">N</span> <span class="pre">p</span> <span class="pre">n</span></code> in which N
+is the number of parties and p is the party id and n refers to the value in the graph which dictates the
 number of columns in the vectorized triple.</p>
 <p>For the n=100 data point, for 2 parties, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">2</span> <span class="pre">0</span> <span class="pre">100</span></code> for party 0
 and <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh</span> <span class="pre">2</span> <span class="pre">1</span> <span class="pre">100</span></code> for party 1.</p>
@@ -217,27 +218,31 @@ and <code class="docutils literal notranslate"><span class="pre">./artifact_eval
 </li>
 <li><p>Figure 8a: We provide scripts for running decision trees of 2, 4, 6, 8, 10, 12 layers for two parties for both arithmetic
 and boolean circuits, for a total of 12 experiments.</p>
+<p>The script format is <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh</span> <span class="pre">num_layers</span> <span class="pre">p</span></code> where
+num_layers (2, 4, 6, 8, 10 or 12) is the number of layers in the decision tree and p is the party number.</p>
 <p>For running the boolean circuit of a decision tree with 2 layers, run
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh</span> <span class="pre">1</span></code> for party 0 and
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh</span> <span class="pre">2</span></code> for party 1.</p>
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
 <p>For running the arithmetic circuit of a decision tree with 2 layers, run
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh</span> <span class="pre">0</span></code> for party 0 and
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh</span> <span class="pre">1</span></code> for party 1.</p>
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
 <p>For the other layers, run the corresponding scripts.</p>
 </li>
 <li><p>Figure 8b: We provide scripts for running decision trees of 10 layers for 2, 4, 6 parties for both arithmetic and boolean
 circuits.</p>
+<p>The script format is <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh</span> <span class="pre">N</span> <span class="pre">p</span></code> where N is the number of parties
+and p is the party index.</p>
 <p>For running the boolean circuit of a decision tree with 2 parties, run
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh</span> <span class="pre">1</span></code> for party 0 and
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh</span> <span class="pre">2</span></code> for party 1.</p>
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
 <p>For running the arithmetic circuit of a decision tree with 2 parties, run
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">0</span></code> for party 0 and
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">1</span></code> for party 1.</p>
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
 <p>For 4 parties and boolean circuits, run
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">1</span></code> for party 0 and similarly for the other parties.</p>
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">4</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
 <p>For 4 parties and arithmetic circuits, run
-<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
-<p>Run the corresponding script for 6 parties.</p>
+<code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh</span> <span class="pre">4</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>Similarly, you can run the same script for 6 parties by changing the first argument.</p>
 </li>
 <li><p>Figure 8c: We provide scripts to run logistic regression for 6 parties for both arithmetic and boolean circuits in a LAN
 setting.</p>
@@ -279,6 +284,13 @@ We provide the numbers we got for the offline/online time for every experiment h
 generate commitments for 10, 50 and 100 samples.</p>
 <p>For 10 samples, run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/subset_sum/subset_sum_10.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
 <p>For 50 and 100 samples, run the corresponding scripts with the same argument format.</p>
+<p>The time reported is merely the online phase. The malicious offline phase for the arithmetic framework is integrated with the
+online phase. To benchmark the offline phase, you can run the script and it will print out the rate at which malicious triples
+are generated in the offline phase.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/malicious_offline_benchmark/benchmark.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties
+to obtain the amortized number for the offline phase. The terminal will output the number of seconds it takes to generate a
+triple. At around 1,000,000 triples, you can get a good estimate of the amortized cost of generating offline triples which
+is also stated in the report.</p>
 </li>
 </ul>
 </div>

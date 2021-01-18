@@ -26,8 +26,9 @@ Before running the artifact, due to the nature of the frameworks, we will assign
 
 
 - Figure 6b: We provide scripts for the data points for 2, 4, 6 parties for both n=100 and n=10 in the LAN setting with a 
-  throughput of 2Gbit/s, for a total of 6 experiments. To run it for n=100, run ``./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh N p n`` in which `N`
-  is the number of parties and `p` is the party id (0-indexed) and `n` refers to the value in the graph which dictates the
+  throughput of 2Gbit/s, for a total of 6 experiments. To run it for n=100, run 
+  ``./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh N p n`` in which N
+  is the number of parties and p is the party id and n refers to the value in the graph which dictates the
   number of columns in the vectorized triple.
 
   For the n=100 data point, for 2 parties, run ``./artifact_eval_scripts/fig_6b/fig_6b_quadratic.sh 2 0 100`` for party 0
@@ -83,17 +84,19 @@ Before running the artifact, due to the nature of the frameworks, we will assign
   ``./artifact_eval_scripts/two_layer_slow.sh 3``.
 
 
-
 - Figure 8a: We provide scripts for running decision trees of 2, 4, 6, 8, 10, 12 layers for two parties for both arithmetic 
   and boolean circuits, for a total of 12 experiments. 
 
+  The script format is ``./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh num_layers p`` where 
+  num_layers (2, 4, 6, 8, 10 or 12) is the number of layers in the decision tree and p is the party number.
+
   For running the boolean circuit of a decision tree with 2 layers, run
-  ``./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh 1`` for party 0 and 
-  ``./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh 2`` for party 1.
+  ``./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh 2 0`` for party 0 and 
+  ``./artifact_eval_scripts/fig_8a/fig_8a_dt_2layer_boolean.sh 2 1`` for party 1.
 
   For running the arithmetic circuit of a decision tree with 2 layers, run
-  ``./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh 0`` for party 0 and 
-  ``./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh 1`` for party 1.
+  ``./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh 2 0`` for party 0 and 
+  ``./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh 2 1`` for party 1.
 
   For the other layers, run the corresponding scripts.
 
@@ -101,21 +104,24 @@ Before running the artifact, due to the nature of the frameworks, we will assign
 - Figure 8b: We provide scripts for running decision trees of 10 layers for 2, 4, 6 parties for both arithmetic and boolean 
   circuits. 
 
+  The script format is ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh N p`` where N is the number of parties
+  and p is the party index.
+
   For running the boolean circuit of a decision tree with 2 parties, run
-  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh 1`` for party 0 and
-  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh 2`` for party 1.
+  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh 2 0`` for party 0 and
+  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_boolean.sh 2 1`` for party 1.
 
   For running the arithmetic circuit of a decision tree with 2 parties, run
-  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh 0`` for party 0 and
-  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh 1`` for party 1.
+  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh 2 0`` for party 0 and
+  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh 2 1`` for party 1.
 
   For 4 parties and boolean circuits, run
-  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh 1`` for party 0 and similarly for the other parties.
+  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh 4 0`` for party 0 and similarly for the other parties.
 
   For 4 parties and arithmetic circuits, run
-  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh 0`` for party 0 and similarly for the other parties.
+  ``./artifact_eval_scripts/fig_8b/fig_8b_dt_2party_arithmetic.sh 4 0`` for party 0 and similarly for the other parties.
 
-  Run the corresponding script for 6 parties.
+  Similarly, you can run the same script for 6 parties by changing the first argument.
 
 - Figure 8c: We provide scripts to run logistic regression for 6 parties for both arithmetic and boolean circuits in a LAN 
   setting.
@@ -176,6 +182,15 @@ Before running the artifact, due to the nature of the frameworks, we will assign
   For 10 samples, run ``./artifact_eval_scripts/subset_sum/subset_sum_10.sh 0`` for party 0 and similarly for the other parties.
 
   For 50 and 100 samples, run the corresponding scripts with the same argument format.
+
+  The time reported is merely the online phase. The malicious offline phase for the arithmetic framework is integrated with the
+  online phase. To benchmark the offline phase, you can run the script and it will print out the rate at which malicious triples
+  are generated in the offline phase.
+
+  Run ``./artifact_eval_scripts/malicious_offline_benchmark/benchmark.sh 0`` for party 0 and similarly for the other parties
+  to obtain the amortized number for the offline phase. The terminal will output the number of seconds it takes to generate a
+  triple. At around 1,000,000 triples, you can get a good estimate of the amortized cost of generating offline triples which
+  is also stated in the report.
 
 
 
