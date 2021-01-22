@@ -163,7 +163,8 @@
             
   <div class="section" id="artifact-evaluation-guide">
 <span id="artifact"></span><h1>Artifact Evaluation Guide<a class="headerlink" href="#artifact-evaluation-guide" title="Permalink to this headline">¶</a></h1>
-<p>Before running the artifact, due to the nature of the frameworks, we will assign each machine with a specific ID. We will 0-index the IDs (the first party is party 0). While the framework we use for arithmetic circuits 0-indexes party ids, the framework for boolean circuits 1-indexes party ids, which explains any potential inconsistencies with executing the scripts.</p>
+<p>Before running the artifact, due to the nature of the frameworks, we will assign each machine with a specific ID. We will 0-index the IDs (the first party is party 0). There is a script <code class="docutils literal notranslate"><span class="pre">run_all.sh</span></code> provided in the instances which details every
+command. Here we provide brief explanations on how to execute the scripts. The key, called <code class="docutils literal notranslate"><span class="pre">artifact_eval.pem</span></code> to access the scripts should have already been provided.</p>
 <ul>
 <li><p>Figure 6a: We provide scripts for the data points for 2, 4, 6 parties for both the quadratic and linear protocols in the LAN
 setting with a throughput of 2Gbit/s, for a total of 6 experiments.
@@ -227,6 +228,7 @@ num_layers (2, 4, 6, 8, 10 or 12) is the number of layers in the decision tree a
 <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh</span> <span class="pre">2</span> <span class="pre">0</span></code> for party 0 and
 <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/fig_8a_dt_2layer_arithmetic.sh</span> <span class="pre">2</span> <span class="pre">1</span></code> for party 1.</p>
 <p>For the other layers, run the corresponding scripts.</p>
+<p>Note that with the arithmetic backend, compiling a 12-layer decision tree takes quite a long time (1-2 hours).</p>
 </li>
 <li><p>Figure 8b: We provide scripts for running decision trees of 10 layers for 2, 4, 6 parties for both arithmetic and boolean
 circuits.</p>
@@ -279,6 +281,7 @@ We provide the numbers we got for the offline/online time for every experiment h
 <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/lr_validation/lr_validation_100.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
 <p>To run the script for 5000 training samples and 500 test samples, run
 <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/lr_validation/lr_validation_500.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties.</p>
+<p>Run the corresponding script for 15000 training samples and 1500 test samples.</p>
 </li>
 <li><p>Auditing generating commitment: We provide a script to run the subset sum commitment scheme used for auditing. The scripts
 generate commitments for 10, 50 and 100 samples.</p>
@@ -289,8 +292,7 @@ online phase. To benchmark the offline phase, you can run the script and it will
 are generated in the offline phase.</p>
 <p>Run <code class="docutils literal notranslate"><span class="pre">./artifact_eval_scripts/malicious_offline_benchmark/benchmark.sh</span> <span class="pre">0</span></code> for party 0 and similarly for the other parties
 to obtain the amortized number for the offline phase. The terminal will output the number of seconds it takes to generate a
-triple. At around 1,000,000 triples, you can get a good estimate of the amortized cost of generating offline triples which
-is also stated in the report.</p>
+triple. The script generates around 2,000,000 triples, at which point, we can get a good estimate of the amortized cost of generating offline triples which is also stated in the report.</p>
 </li>
 </ul>
 </div>

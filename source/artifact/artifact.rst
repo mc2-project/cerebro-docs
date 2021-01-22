@@ -4,7 +4,8 @@
 Artifact Evaluation Guide
 **********************************
 
-Before running the artifact, due to the nature of the frameworks, we will assign each machine with a specific ID. We will 0-index the IDs (the first party is party 0). While the framework we use for arithmetic circuits 0-indexes party ids, the framework for boolean circuits 1-indexes party ids, which explains any potential inconsistencies with executing the scripts.
+Before running the artifact, due to the nature of the frameworks, we will assign each machine with a specific ID. We will 0-index the IDs (the first party is party 0). There is a script ``run_all.sh`` provided in the instances which details every
+command. Here we provide brief explanations on how to execute the scripts. The key, called ``artifact_eval.pem`` to access the scripts should have already been provided.
 
 - Figure 6a: We provide scripts for the data points for 2, 4, 6 parties for both the quadratic and linear protocols in the LAN 
   setting with a throughput of 2Gbit/s, for a total of 6 experiments.
@@ -100,6 +101,8 @@ Before running the artifact, due to the nature of the frameworks, we will assign
 
   For the other layers, run the corresponding scripts.
 
+  Note that with the arithmetic backend, compiling a 12-layer decision tree takes quite a long time (1-2 hours).
+
 
 - Figure 8b: We provide scripts for running decision trees of 10 layers for 2, 4, 6 parties for both arithmetic and boolean 
   circuits. 
@@ -175,6 +178,8 @@ Before running the artifact, due to the nature of the frameworks, we will assign
   To run the script for 5000 training samples and 500 test samples, run 
   ``./artifact_eval_scripts/lr_validation/lr_validation_500.sh 0`` for party 0 and similarly for the other parties.
 
+  Run the corresponding script for 15000 training samples and 1500 test samples.
+
 
 - Auditing generating commitment: We provide a script to run the subset sum commitment scheme used for auditing. The scripts
   generate commitments for 10, 50 and 100 samples.
@@ -189,8 +194,7 @@ Before running the artifact, due to the nature of the frameworks, we will assign
 
   Run ``./artifact_eval_scripts/malicious_offline_benchmark/benchmark.sh 0`` for party 0 and similarly for the other parties
   to obtain the amortized number for the offline phase. The terminal will output the number of seconds it takes to generate a
-  triple. At around 1,000,000 triples, you can get a good estimate of the amortized cost of generating offline triples which
-  is also stated in the report.
+  triple. The script generates around 2,000,000 triples, at which point, we can get a good estimate of the amortized cost of generating offline triples which is also stated in the report.
 
 
 
