@@ -7,6 +7,10 @@ Artifact Evaluation Guide
 Before running the artifact, due to the nature of the frameworks, we will assign each machine with a specific ID. We will 0-index the IDs (the first party is party 0). There is a script ``run_all.sh`` provided in the instances which details every
 command. Here we provide brief explanations on how to execute the scripts. The key, called ``artifact_eval.pem`` to access the scripts should have already been provided.
 
+For figure 6 and 7, when benchmarking the offline phase, the rate at which triples/matrices are produced should be outputted onto the terminal at the end of execution. This will later be used to estimate the offline time for various benchmarks using arithmetic circuits.
+
+For the remaining figures, when executing arithmetic circuits, the online time is outputted at the end of execution, while obtaining the offline time is explained in the report. When executing boolean circuits, the total (non-setup) time is displayed at the end of execution.
+
 - Figure 6a: We provide scripts for the data points for 2, 4, 6 parties for both the quadratic and linear protocols in the LAN 
   setting with a throughput of 2Gbit/s, for a total of 6 experiments.
   To run the linear protocol, run ``./artifact_eval_scripts/fig_6a/fig_6a_linear.sh N p`` in which `N` is the number of parties and `p` is the party id (0-indexed).
@@ -24,7 +28,6 @@ command. Here we provide brief explanations on how to execute the scripts. The k
   For 4 parties, run ``./artifact_eval_scripts/fig_6a/fig_6a_quadratic.sh 4 0`` for party 0 and similarly for the other parties.
 
   For 6 parties, run ``./artifact_eval_scripts/fig_6a/fig_6a_quadratic.sh 6 0`` for party 0 and similarly for the other parties.
-
 
 - Figure 6b: We provide scripts for the data points for 2, 4, 6 parties for both n=100 and n=10 in the LAN setting with a 
   throughput of 2Gbit/s, for a total of 6 experiments. To run it for n=100, run 
