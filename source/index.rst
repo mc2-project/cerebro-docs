@@ -14,7 +14,6 @@ Welcome to Cerebro's documentation!
    setup/setup.rst
    usage/references.rst
    todo/todo.rst
-   artifact/artifact.rst
    
    
 
