@@ -4,7 +4,7 @@ Cerebro Setup
 
 We provide a Dockerfile that installs all the dependencies required by Cerebro. Running the Dockerfile will build SCALE-MAMBA and EMP-AGMPC. 
 	* Create the Dockerfile and requirements.txt.
-    	* Dockerfile 
+	        * Dockerfile 
 		::
 
 			FROM rdeng2614/cerebro:initial_image
