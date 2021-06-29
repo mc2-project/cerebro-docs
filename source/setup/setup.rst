@@ -27,6 +27,7 @@ We provide a Dockerfile that installs all the dependencies required by Cerebro. 
 				COPY requirements.txt /root
 				RUN pip install -r requirements.txt
 		
+
 		* requirements.txt
 		  ::
 
@@ -50,7 +51,7 @@ We provide a Dockerfile that installs all the dependencies required by Cerebro. 
 				pyxdg==0.25
 				SecretStorage==2.3.1
 				six==1.11.0 
-				
+
 	* Place them in the same directory.
 	* In that directory, run ``docker build -t name_of_image``.
 
