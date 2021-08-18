@@ -2,62 +2,54 @@
 Cerebro Setup
 *************************
 
-We provide a Dockerfile that installs all the dependencies required by Cerebro. Running the Dockerfile will build SCALE-MAMBA and EMP-AGMPC. 
-	* Create the Dockerfile and requirements.txt.
-	        * Dockerfile 
-		::
-
-			FROM rdeng2614/cerebro:initial_image
-			WORKDIR /root
-			RUN git clone https://github.com/mc2-project/cerebro.git
-			WORKDIR /root/cerebro
-			RUN git submodule update --init --recursive
-			WORKDIR /root/cerebro/crypto_backend/emp-toolkit/emp-tool
-			RUN git pull origin master && cmake . && make && sudo make install
-			WORKDIR /root/cerebro/crypto_backend/emp-toolkit/emp-ot
-			RUN cmake . && make && sudo make install
-			WORKDIR /root/cerebro/crypto_backend/emp-toolkit/emp-agmpc
-			RUN git pull origin master
-			RUN cmake . && make
-			WORKDIR /root
-			RUN apt-get update && apt-get install -y \
-				python-gmpy2 \
-				python-pip \
-				emacs
-			COPY requirements.txt /root
-			RUN pip install -r requirements.txt
-
-		* requirements.txt
-		::
-
-			asn1crypto==0.24.0
-			astor==0.8.1
-			astunparse==1.6.3
-			cryptography==2.1.4
-			decorator==4.4.2
-			enum34==1.1.6
-			gmpy2==2.0.8
-			idna==2.6
-			ipaddress==1.0.17
-			keyring==10.6.0
-			keyrings.alt==3.0
-			networkx==2.2
-			numpy==1.16.6
-			ordered-set==3.1.1
-			pathlib==1.0.1
-			pycrypto==2.6.1
-			pygobject==3.26.1
-			pyxdg==0.25
-			SecretStorage==2.3.1
-			six==1.11.0 
-
-	* Place them in the same directory.
-	* In that directory, run ``docker build -t name_of_image``.
-
-After creating the image, run it. You should be in ``/root``, the directory Cerebro was installed in. Complete the setup steps for your desired backend.
+Cerebro has a few core dependencies that need to be setup before it can be used.
 
 SCALE-MAMBA
 ################
+
+The documentation fully detailing SCALE-MAMBA can be obtained by running ``make doc`` in the SCALE-MAMBA repository.
+
+The following is copied from SCALE-MAMBA's current setup documentation.
+
+Prerequisite Libraries:
+*************************
+	* gcc/g++, tested with version 7.2.1
+	* MPIR (compiled with the -cxx flag)
+	* python 2.7.5 (ideally with gmpy2 installed)
+	* OpenSSL (tested with version 1.1.0)
+	* Crypto ++ (tested with version 7.0)
+
+
+EMP-AGMPC
+################
+Prerequisite Libraries:
+*************************
+	* emp-toolkit:
+		* Install: 
+			* cmake 
+			* git 
+			* build-essential 
+			* libssl-dev 
+			* libgmp-dev
+			* Boost
+			* relic
+		* cd into emp-tool and run ``cmake . && make && sudo make install``.
+	* emp-ot: Installation instructions are here: https://github.com/emp-toolkit/emp-ot
+		* After installing emp-toolkit, just cd into emp-ot and run ``cmake . && make && sudo make install``.
+
+
+Alternatively, we provide a Dockerfile that installs Cerebro as well as its dependencies.
+
+
+Docker Setup
+**************
+	* In the Cerebro repository, under ``Docker/`` are two files: `Dockerfile` and `requirements.txt` 
+	* Place the two files in the same directory.
+	* In that directory, run ``docker build -t name_of_image``.
+
+After creating the image, run it. You should be in ``/root``, the directory Cerebro was installed in. 
+
+Complete the setup steps for your desired backend.
 
 Setup Steps for SCALE-MAMBA
 *****************************
@@ -70,8 +62,8 @@ Setup Steps for SCALE-MAMBA
 	* Go to ``cerebro/crypto_backend/SCALE-MAMBA`` and run ``./Setup.x``.
   	* First, let's setup ``Certs`` (i.e enter ``1``). 
     	* For the root, enter the name you gave your root (e.g. ``RootCA``). For the number of players, enter ``n`` (e.g. ``2``). Then, for each player, input an IP address (for testing, input ``127.0.0.1``). For the name of certificate, use the common name you gave your parties appended with ``.crt`` (e.g. ``Player0.crt`` and ``Player1.crt``). This should produce ``NetworkData.txt`` under ``Data``.
-  	* Next, run ./Setup.x, and setup secret sharing. Choose full threshold. Let it find the prime for LSSS. For the modulus, for simplicity, enter 128. You can choose a different number if you want. The number you can choose is limited by ``MAX_MOD`` in ``CONFIG.mine``; you can't use more than 2 to the ``MAX_MOD`` bits. You can configure ``MAX_MOD`` if you want.
-  	* Finally, run .Setup.x, and setup the convversion circuit. 
+  	* Next, run ``./Setup.x``, and setup secret sharing. Choose full threshold. Let it find the prime for LSSS. For the modulus, for simplicity, enter 128. You can choose a different number if you want. The number you can choose is limited by ``MAX_MOD`` in ``CONFIG.mine``; you can't use more than 2 to the ``MAX_MOD`` bits. You can configure ``MAX_MOD`` if you want.
+  	* Finally, run ``./Setup.x``, and setup the convversion circuit. 
 
 Testing for SCALE-MAMBA
 *************************
@@ -103,3 +95,4 @@ Resources
 	* emp-agmpc repository
 	* emp-tool repository
 	* emp-ot repository
+
